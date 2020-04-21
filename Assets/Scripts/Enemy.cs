@@ -29,10 +29,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    //Trigger this function when Object start to collide with other object
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player") 
         {
+            Player player = other.transform.GetComponent<Player>();
+            if (player != null) 
+            {
+                player.Damage();
+            }
             Destroy(this.gameObject);
         }
 
