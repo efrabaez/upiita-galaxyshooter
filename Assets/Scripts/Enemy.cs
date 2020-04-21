@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
 
         if (transform.position.y < -6.0f)
         {
-            transform.position = new Vector3(Random.Range(-9.5f, 9.5f), 7, 0);
+            transform.position = new Vector3(Random.Range(-8f, 8f), 7, 0);
         }
     }
 
