@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] //Serialize Data in order to read it and modified form inspector, but not from other game objects.
     private float _speed = 5.0f;
+    [SerializeField]
+    private GameObject _laserPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         CalculateMovement();
+        FireMovement();
 
     }
 
@@ -43,6 +46,13 @@ public class Player : MonoBehaviour
         if (transform.position.x > 12 || transform.position.x < -12)
         {
             transform.position = new Vector3(-transform.position.x, transform.position.y, 0);
+        }
+    }
+
+    void FireMovement() {
+        //Space keyu for spawn object
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Instantiate(_laserPrefab,transform.position + new Vector3(0,0.8f,0), Quaternion.identity);
         }
     }
 }
