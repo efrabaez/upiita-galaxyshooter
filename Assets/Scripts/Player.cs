@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
     {
         //Space key for spawn object
         _nextFire = Time.time + _fireRate;
-        Instantiate(_laserPrefab,transform.position + new Vector3(0,0.8f,0), Quaternion.identity);
+        Instantiate(_laserPrefab,transform.position + new Vector3(0,1.05f,0), Quaternion.identity);
     }
 
     public void Damage()
