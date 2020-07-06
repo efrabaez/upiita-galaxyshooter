@@ -23,6 +23,10 @@ public class Laser : MonoBehaviour
         transform.Translate(translation: Vector3.up * _speed * Time.deltaTime);
 
         if (transform.position.y > 7.5f) {
+            if (transform.parent != null) {
+                //Destroy parent tripleshot 'cause is empty object
+                Destroy(transform.parent.gameObject);
+            }
             Destroy(this.gameObject);
         }
     }
