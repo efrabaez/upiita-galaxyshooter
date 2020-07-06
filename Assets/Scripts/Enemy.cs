@@ -7,10 +7,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] //Serialize Data in order to read it and modified form inspector, but not from other game objects.
     private float _speed = 4.0f;
 
+    private Player _player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -45,6 +46,10 @@ public class Enemy : MonoBehaviour
         if(other.tag == "Laser")
         {
             Destroy(other.gameObject);
+            //Acces player to add score points
+            if(_player != null){
+                _player.AddScore(10);
+            }
             Destroy(this.gameObject);
         }    
     }
